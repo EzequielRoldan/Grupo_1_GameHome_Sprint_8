@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head')%> 
+
+<body>
+
+    <%- include('../partials/header')%> 
+
+   <main>
+
+    <div class="contenido-perfil">
+
+    <section class="perfil-img">
+        <p>¡Hola! <% if (typeof user !='undefined') { %>
+            <%= user.firstName %> 
+        <% } %><p>
+        <img src="/images/users/<%= user.avatar %>" alt="imagen perfil de usuario">
+        
+        
+    </section>
+    <section class="perfil-datos-usuario">
+
+        <form action="/usuario/editar/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST" class="formulario">
+            <h3>Editar perfil:</h3>
+
+            <div class="campo-perfil">
+            <label for="first_name">Nombre</label>
+            <input type="text" name="firstName" value=" <%= user.firstName %> " class="nombre">
+            <div class="error-nombre"></div>
+        </div>
+
+        <div class="campo-perfil">
+        <label for="last_name">Apellido</label>
+        <input type="text" name="lastName" value="<%= user.lastName %>" class="apellido">
+        <div class="error-apellido"></div>
+        </div>
+
+        <div class="campo-perfil">
+        <label for="email">Email</label>
+        <input type="email" name="email" value="<%= user.email %>" class="correo">
+        <div class="error-correo"></div>
+            </div>
+     
+            <div class="avatar">
+            <label for="avatar">Editar Avatar</label>
+            <input type="file" name="avatar" class="imagen-perfil" >
+                <div class="error-image"></div>
+        </div>
+
+
+            <div class="btn-form">
+        <button type="submit">Guardar cambios</button></div>
+
+        
+        </form>
+
+       
+
+
+    </section>
+
+</div>
+<section class="perfil-datos-usuario">
+
+    <p><i class="fas fa-chevron-circle-left"></i><a href="/usuario/perfil">Volver a mi perfil</a></p>
+
+
+  </section>
+   </main>
+
+   <%- include('../partials/footer')%>
+
+   <script src="/js/editProfileValidation.js"></script>
+
+</body>
+</html>

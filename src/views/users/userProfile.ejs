@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head')%> 
+
+<body>
+
+    <%- include('../partials/header')%> 
+
+   <main>
+
+    <div class="contenido-perfil">
+
+    <section class="perfil-img">
+        <p>¡Hola! <% if (typeof user !='undefined') { %>
+            <%= user.firstName %> 
+        <% } %><p>
+        <img src="/images/users/<%= user.avatar %>" alt="imagen perfil de usuario">
+        
+        
+    </section>
+    <section class="caracteristicas-perfil">
+        <article>
+            <h4>Mis datos:</h4>
+            <ul>
+                <li class="color1">Nombre: <%= user.firstName%></li>
+                <li class="color2">Apellido: <%= user.lastName%></li>
+                <li class="color1">E-mail: <%= user.email%></li>
+
+               
+            </ul>
+
+            
+
+        </article>
+    </section>
+
+
+</div>
+<section class="perfil-datos-usuario">
+
+    <p><i class="fas fa-chevron-circle-left"></i><a href="/usuario/editProfile">Editar mis datos</a></p>
+
+
+  </section>
+
+<%- include('../partials/newsletter') %> 
+   </main>
+
+   <%- include('../partials/footer')%>
+
+</body>
+</html>

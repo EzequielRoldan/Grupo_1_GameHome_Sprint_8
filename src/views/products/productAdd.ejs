@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head')%> 
+<body>
+    
+
+    <%- include('../partials/header')%> 
+
+
+<main>
+
+
+    
+    <br>
+    <div class="contenedor-formularioCreate">
+        <form action="/products" id="add-form" method="POST" class="form-add" enctype="multipart/form-data">
+    
+            <fieldset>
+                <legend>Crear producto</legend>
+               <div class="contenido-form">
+
+                <div class="art-product">
+                        <label for="">Nombre del producto</label>
+                        <input type="text" name="name" class="nombre-product" placeholder="Ej: Cam Logitech ">
+                        <div name="error" class="nameProduct-error"></div>
+                        <% if (locals.errors && errors.name) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.name.msg %>  </p>
+                        <% } %>
+
+                </div>
+
+
+                <div class="art-product">
+
+                        <label for="">Categoría</label>
+                        <select name="categoryId" class="category">
+                            <option value="">Elegí una categoría</option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category.id%> "><%= category.name%></option>
+                            <% }) %>
+                        <% if (locals.errors && errors.categoryId) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.categoryId.msg %>  </p>
+                        <% } %>
+                        </select>
+                        <div name="error" class="category-error"></div>
+               </div>
+            
+  
+                <div class="art-product">
+                    <label for="">Precio </label>
+                    <input type="text" name="price" class="price" placeholder="Precio">
+                    <div name="error" class="priceProduct-error"></div>
+                        <% if (locals.errors && errors.price) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.price.msg %>  </p>
+                        <% } %>
+                </div>
+
+                <div class="art-product">
+                        <label for="">Sección</label>
+                        <select name="section" class="section">
+                            <option value="">Elegí una sección</option>
+                            <option value="todos">Todos</option>
+                            <option value="ofertas">Ofertas</option>
+                            <option value="destacado">Destacado</option>
+                            <% if (locals.errors && errors.section) { %>
+                                <p class="feedback" style="color: red;font-size: 14px;"><%= errors.section.msg %>  </p>
+                            <% } %>
+                            </select>
+                            <div name="error" class="section-error"></div>
+                </div>
+
+                <div class="textarea">
+                        <label for="">Descripción</label>
+                        <textarea name="description"class="description" rows="8" cols="25" placeholder="Descripción del producto:" ></textarea>
+                
+                </div> 
+                        <div name="error" class="description-error"></div>
+                        <% if (locals.errors && errors.description) { %>
+                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.description.msg %>  </p>
+                    <% } %>
+
+                <div class="art-product">
+                    <label for="">Descripción extendida</label>
+                        <textarea name="extended_description" class="descrip-max" rows="8" cols="25" placeholder="Descripción extendida del producto:" ></textarea>
+                </div>
+                <div name="error" class="descripMax-error"></div>
+                        <% if (locals.errors && errors.extended_description) { %>
+                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.extended_description.msg %>  </p>
+                    <% } %>
+
+                <div class="art-product">
+                    <label for="">Stock:</label>
+                    <input type="text" name="stock" class="stock">
+                    <div name="error" class="stock-error"></div>
+                        <% if (locals.errors && errors.stock) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock.msg %>  </p>
+                        <% } %>
+                </div>
+                <div class="art-product">
+                    <label for="">Stock mínimo:</label>
+                    <input type="text" name="stock_min" class="stock-min">
+                    <div name="error" class="stock-min-error"></div>
+                        <% if (locals.errors && errors.stock_min) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_min.msg %>  </p>
+                        <% } %>
+                </div>
+                <div class="art-product">
+                    <label for="">Stock máximo:</label>
+                    <input type="text" name="stock_max" class="stock-max">
+                    <div name="error" class="stock-max-error"></div>
+                        <% if (locals.errors && errors.stock_max) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_max.msg %>  </p>
+                        <% } %>
+                </div>
+
+                <div class="art-product">
+                    <label for="">Color</label>
+                    <select name="colorId" class="color">
+                        <option value="">Elegí un color</option>
+
+                        <% colors.forEach(color => { %>
+                            <option value="<%= color.id %> "><%= color.name  %> </option>
+                        <% }) %>
+                    </select>
+                    <div name="error" class="color-error"></div>
+                </div>
+
+                <div class="art-product">
+                    <label for="">Marca</label>
+                    <select name="brandId" class="marca">
+                        <option value="">Elegí una marca</option>
+                        <% brands.forEach(brand => { %>
+                            <option value="<%= brand.id %> "><%= brand.name  %> </option>
+                        <% }) %>
+                    </select>
+                    <div name="error" class="brand-error"></div>
+                </div>
+              
+
+                <div class="art-product">
+                    <label>Imagen</label>
+                    <input type="file" name="image" class="img" placeholder="Imagen del artículo">
+                    <div name="error" class="img-error"></div>
+                        <% if (locals.errors && errors.image) { %>
+                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.image.msg %>  </p>
+                        <% } %>
+                </div>
+               
+                 <div class="btn-form">
+                    <button type="submit" class="button-form">Cargar producto</button>
+                </div>
+
+                    <br><br><br><br>
+                </div>
+            </fieldset>
+                </form>
+                <!--Seguir editando-->
+                <div class="editar">
+                    <p><a href="/products" class="seguir"><i class="fas fa-chevron-circle-left"></i>Editar un producto existente</a></p>
+                </div>
+    </div>
+</main>
+
+
+
+
+    <%- include('../partials/footer')%>
+    <script src="/js/addProductValidation.js"></script>
+</body>
+</html>
