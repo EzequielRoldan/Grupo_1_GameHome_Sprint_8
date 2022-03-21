@@ -20,6 +20,10 @@ const cookies= require('./src/middleware/cookie')
 const usersRutas= require('./src/routes/usersRutas')
 const productRutas= require('./src/routes/productRutas')
 
+//API's
+
+const apiUsersRouter = require('./src/routes/apis/userApi');
+
 // Pasar poder usar los métodos PUT y DELETE
 const methodOverride =  require('method-override');  
 
@@ -27,6 +31,7 @@ const methodOverride =  require('method-override');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
 app.use(cookie())
+
 
 
 // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
@@ -49,11 +54,13 @@ app.use('/', productRutas);
 
 
 //Ruta users
-app.use('/usuario',usersRutas)
+app.use('/usuario',usersRutas);
+
+// Para apis
+app.use('/api/users', apiUsersRouter);
 
 //Error 404
 app.use((req,res,next)=>{
     res.status(404).render("users/notFound")
 });
-
 
