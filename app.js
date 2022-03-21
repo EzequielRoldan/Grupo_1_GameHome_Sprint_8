@@ -23,6 +23,7 @@ const productRutas= require('./src/routes/productRutas')
 //API's
 
 const apiUsersRouter = require('./src/routes/apis/userApi');
+const apiProducts = require('./src/routes/apis/productsApi')
 
 // Pasar poder usar los métodos PUT y DELETE
 const methodOverride =  require('method-override');  
@@ -58,6 +59,7 @@ app.use('/usuario',usersRutas);
 
 // Para apis
 app.use('/api/users', apiUsersRouter);
+app.use('/api/products',apiProducts)
 
 //Error 404
 app.use((req,res,next)=>{

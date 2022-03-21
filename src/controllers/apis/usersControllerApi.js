@@ -40,7 +40,7 @@ const userControllerApi = {
                 name: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
-                avatar: `/images/users${user.avatar}`
+                avatar: `/images/users/${user.avatar}`
 
               }           
                 
