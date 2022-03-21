@@ -1,142 +1,144 @@
 window.addEventListener("load", function(){
 
-    let pattern="[a-zA-Z ]{2,254}"
+    //Expresiones regulares
+    const regexName="^[a-zA-Z]{1,254}$";
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+    const regexEmail = /^([A-Za-z0-9_\-\+\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
 
     // Capturar elementos
-    let nombre = document.querySelector('.nombre')
-    let password = document.querySelector('.password')
-    let form = document.querySelector('.formulario')
-    let correo = document.querySelector('.correo')
-    let image = document.querySelector('.image')
-    let apellido = document.querySelector('.apellido')
-    let button = document.querySelector('.submit')
+    const form = document.querySelector('.formulario');
+    const nombre = document.querySelector('.nombre');
+    const apellido = document.querySelector('.apellido');
+    const password = document.querySelector('.password');
+    const correo = document.querySelector('.correo');
+    const date = document.querySelector('.date');
+    const image = document.querySelector('.image');
+    const button = document.querySelector('.submit');
 
      //Funciones
 
         function nameValidator () {
+            const contenedor = document.querySelector(".error-nombre");
+            contenedor.innerHTML ='';
 
-            let error = document.querySelector(".error-nombre")
-            error.innerHTML=''
-        if(!nombre.value){
-           
-           error.innerHTML+='<p>El campo nombre debe estar completo</p>'
-           error.style.color='red';
-            return true
-        }else if(!nombre.value.match(pattern)){
-            error.innerHTML+='<p>El campo nombre contener solo letras</p>'
-            error.style.color='red';
-            return true
-        }
-        else if(nombre.value.length<2){
-            document.querySelector(".error-nombre").innerHTML+='<p>El campo nombre debe ser mayor a 2</p>'
-            error.style.color='red';
-            return true
+                if(!nombre.value){
+                    showErrorMessage(contenedor, 'El nombre debe estar completo.');
+                    return true
+                }else if(!nombre.value.match(regexName)){
 
-            //que solo permita letras
-        }else{
-            error.innerHTML=''
-            return false
-        }
-        }
+                    showErrorMessage(contenedor, 'El nombre debe contener solo letras.');
+                    return true
+                }
+                else if(nombre.value.length<2){
+                    showErrorMessage(contenedor, 'El nombre debe tener más de 1 letra.');
+                    return true
 
-        function passwordValidator() {
-            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
-            let passwordError = document.querySelector('.error-password')
-            passwordError.innerHTML=''
-            if(!password.value){
-                passwordError.innerHTML+='<p>El campo contraseña debe estar completo</p>'
-                passwordError.style.color='red';
-           return true
-            }
-            else if(password.value.length<8){
-                passwordError.innerHTML+='<p>El campo contraseña debe ser mayor a 8</p>'
-                passwordError.style.color='red';
-           return true
-            }else if(!regex.test(password.value)){
-                passwordError.innerHTML+='<p>La contraseña debe tener minimo 8 caracteres, una letra mayúscula, una letra minuscula,un dígito, 1 caracter especial</p>'
-                passwordError.style.color='red';
-            }
-            else{
-                passwordError.innerHTML=''
-            return false
-            }
+                //que solo permita letras
+                }else{
+                    contenedor.innerHTML=''
+                    return false
+                }
         }
-
 
         function lastNameValidator () {
-            let pattern="[a-zA-Z ]{2,254}"
-            let errorApellido = document.querySelector(".error-apellido")
-            errorApellido.innerHTML=''
-        if(!apellido.value){
-           
-            errorApellido.innerHTML+='<p>El campo apellido debe estar completo</p>'
-            errorApellido.style.color='red';
-            return true
-        }
-        else if(!apellido.value.match(pattern)){
-            errorApellido.innerHTML+='<p>El campo apellido contener solo letras</p>'
-            errorApellido.style.color='red';
-            return true
-        }else if(apellido.value.length<2){
-            document.querySelector(".error-apellido").innerHTML+='<p>El campo apellido debe ser mayor a 2</p>'
-            error.style.color='red';
-            return true
-           
-          
-        } else{
-            error.innerHTML=''
-            return false
-        }
+            let contenedorApellido = document.querySelector(".error-apellido")
+            contenedorApellido.innerHTML=''
+                if(!apellido.value){
+                    showErrorMessage(contenedorApellido, 'El apellido no puede quedar vacío.');
+                    return true;
+
+                }else if(!apellido.value.match(regexName)){
+
+                    showErrorMessage(contenedorApellido, 'El apellido solo admite letras.');
+                    return true;
+
+                }else if(apellido.value.length<2){
+
+                    showErrorMessage(contenedorApellido, 'El apellido debe tener más de 1 letra.');
+                    return true;
+
+                }else{
+                    contenedorApellido.innerHTML='';
+                    return false;
+                }
         }
 
         function correoValidator(){
             //Traigo la clase para los errores
-        let correoError = document.querySelector('.error-correo');
+            let contenedorEmail = document.querySelector('.error-correo');
+                contenedorEmail.innerHTML='';
+                
+                //El campo email no puede ser nulo ni vacío
+                if(correo.value == '' || correo.value == null){
+                    showErrorMessage(contenedorEmail, 'El E-mail no puede quedar vacío.')
+                    return true
+                //Tampoco puede ser un email inválido
+                }else if(!regexEmail.test(correo.value)){
+                    showErrorMessage(contenedorEmail, 'El E-mail debe ser válido.')
+                    return true;
+                }else{
+                    contenedorEmail.innerHTML='';
+                    return false;
+                }
+            }
 
-        //Expresión para validar formato email
-            var regexEmail = /^([A-Za-z0-9_\-\+\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    
-            correoError.innerHTML='';
-            
-            //El campo email no puede ser nulo ni vacío
-            if(correo.value ==" " || correo.value == null){
-                correoError.innerHTML += '<p>El campo E-mail no debe estar vacío</p>';
-                correoError.style.color='red';
+        function passwordValidator() {
+            let contenedor = document.querySelector('.error-password');
+            contenedor.innerHTML='';
+
+                if(!password.value){
+                    showErrorMessage(contenedor, 'La contraseña está vacía, escribí una.');
+                    return true
+                }
+                else if(password.value.length<8){
+                    showErrorMessage(contenedor, 'La contraseña debe ser mayor a 8 caracteres.');
+                    return true
+
+                }else if(!regexPassword.test(password.value)){
+                    showErrorMessage(contenedor, 'La contraseña debe tener minimo 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial.');
+                    return true
+
+                }else{
+                    contenedor.innerHTML=''
+                return false
+                }
+        }
+        function dateValidator() {
+            let contenedorFecha = document.querySelector('.error-date');
+                contenedorFecha.innerHTML = '';
+            if(date.value == ''){
+                showErrorMessage(contenedorFecha, 'Seleccioná tu fecha de nacimiento.')
                 return true
-            //Tampoco puede ser un email inválido
-            }else if(/*!correo.value.match(regexEmail)*/!regexEmail.test(correo.value)){
-                correoError.innerHTML+= '<p>El E-mail debe ser válido</p>'
-                correoError.style.color='red';
-                return true;
             }else{
-                correoError.innerHTML='';
-                return false;
+                contenedorFecha.innerHTML = '';
+                return false
             }
         }
 
         function imageValidator(){
-        const acceptedExtensions = ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF'];
-        let imageError = document.querySelector(".error-image");
-        imageError.innerHTML = "";
-            console.log(image);
-            console.log("-----");
-        if(image){
-            let filename = image.value;
-            let fileExtension = filename.split(".").pop();
-            
-        if (!acceptedExtensions.includes(fileExtension)){
-            imageError.innerHTML = `Las extenciones de archivo permitidas son ${acceptedExtensions.join(', ')}`;  
-            imageError.style.color='red';
-            return true
-            }
+            const acceptedExtensions = ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF'];
 
-        }else{
-            imageError.innerText = '';   
-            return false;
+            let contenedorImg = document.querySelector(".error-image");
+                contenedorImg.innerHTML = "";
+                console.log(image);
+                console.log("-----");
+                if(image){
+                    let filename = image.value;
+                    let fileExtension = filename.split(".").pop();
+                    
+                    if (!acceptedExtensions.includes(fileExtension)){
+
+                        contenedorImg.innerHTML = `Las extenciones de archivo permitidas son ${acceptedExtensions.join(', ')}`;  
+                        contenedorImg.style.color='red';
+                        return true
+                        }
+                    }else{
+
+                        contenedorImg.innerText = '';   
+                        return false;
+                    }
         }
-
-     }
      
 
 
@@ -149,11 +151,12 @@ window.addEventListener("load", function(){
             lastName:lastNameValidator(),
             email:correoValidator(),
             password:passwordValidator(),
+            date: dateValidator(),
             avatar:imageValidator(),
         };
         
         
-        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName) {
+        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName || hasErrors.date) {
             e.preventDefault()
         }else{
             
@@ -170,9 +173,11 @@ window.addEventListener("load", function(){
 
 
     nombre.addEventListener('blur', nameValidator);
+    apellido.addEventListener('blur',lastNameValidator);
     password.addEventListener('blur',passwordValidator);
     correo.addEventListener('blur',correoValidator);
+    date.addEventListener('blur', dateValidator);
     image.addEventListener('change',imageValidator);
-    apellido.addEventListener('blur',lastNameValidator);
     
-    })
+    
+    });

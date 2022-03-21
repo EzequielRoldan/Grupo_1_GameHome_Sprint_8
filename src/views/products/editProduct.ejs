@@ -18,9 +18,9 @@
                 <div class="art-product">
                         <label for="">Nombre del producto</label>
                         <input type="text" name="name" class="nombre-product" value="<%= locals.old ? old.name : producto.name%>">
-                        <div name="error" class="nameProduct-error"></div>
+                        <div class="nameProduct-error"></div>
                         <% if (locals.errors && errors.name) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.name.msg %>  </p>
+                            <p class="feedback"><%= errors.name.msg %></p>
                         <% } %>
                 </div>
 
@@ -37,7 +37,7 @@
                                 <% } %> 
                         <% }) %>
                         <% if (locals.errors && errors.categoryId) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.categoryId.msg %>  </p>
+                            <p class="feedback"><%= errors.categoryId.msg %></p>
                         <% } %>
                         </select>
                 </div>
@@ -48,7 +48,7 @@
                     <input type="text" name="price" class="price"  value="<%= locals.old ? old.price : producto.price%>" required>
                     <div name="error" class="priceProduct-error"></div>
                     <% if (locals.errors && errors.price) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.price.msg %>  </p>
+                        <p class="feedback"><%= errors.price.msg %></p>
                     <% } %>
                 </div>
 <!--                         ***** SECCIÓN *****                                        -->
@@ -60,7 +60,7 @@
                         <option value="ofertas">Ofertas</option>
                         <option value="destacado">Destacado</option>
                         <% if (locals.errors && errors.section) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.section.msg %>  </p>
+                            <p class="feedback"><%= errors.section.msg %></p>
                         <% } %>
                         </select>
                         <div name="error" class="section-error"></div>
@@ -72,25 +72,26 @@
                 </div>
                 <div name="error" class="description-error"></div>
                         <% if (locals.errors && errors.description) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.description.msg %>  </p>
+                        <p class="feedback"><%= errors.description.msg %></p>
                         <% } %>
-<!--                  ***** DESCRIPCIÓN EXTENDIDA *****                                 -->
+
+<!--               ***** DESCRIPCIÓN EXTENDIDA *****                -->
                 <div class="art-product">
                     <label for="">Descripción extendida</label>
                         <textarea name="extended_description" class="descrip-max" rows="8" cols="25" placeholder="Descripción extendida del producto:" ><%= locals.old ? old.extended_description : producto.extended_description%></textarea>
                 </div>
                 <div name="error" class="descripMax-error"></div>
                         <% if (locals.errors && errors.extended_description) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.extended_description.msg %>  </p>
+                        <p class="feedback"><%= errors.extended_description.msg %></p>
                         <% } %>
 <!--                           ***** STOCK *****                                       -->
                 <div class="art-product">
                     <label for="">Stock</label>
                     <input type="text" name="stock" class="stock" value="<%= locals.old ? old.stock :producto.stock%>">
 
-                    <div name="error" class="stoc-error"></div>
+                    <div name="error" class="stock-error"></div>
                         <% if (locals.errors && errors.stock) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock.msg %>  </p>
+                            <p class="feedback"><%= errors.stock.msg %></p>
                         <% } %>
                 </div>
 <!--                         ***** STOCK MINIMO *****                                  -->
@@ -99,7 +100,7 @@
                     <input type="text" name="stock_min" class="stock-min" value="<%= locals.old ? old.stock_min : producto.stock_min%>">
                     <div name="error" class="stock-min-error"></div>
                     <% if (locals.errors && errors.stock_min) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_min.msg %>  </p>
+                        <p class="feedback"><%= errors.stock_min.msg %></p>
                     <% } %>
                 </div>
 <!--                           ***** STOCK MAXIMO *****                                -->
@@ -109,7 +110,7 @@
                     <input type="text" name="stock_max" class="stock-max" value="<%= locals.old ? old.stock_max :producto.stock_max%>">
                     <div name="error" class="stock-max-error"></div>
                         <% if (locals.errors && errors.stock_max) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_max.msg %>  </p>
+                            <p class="feedback"><%= errors.stock_max.msg %></p>
                         <% } %>
                 </div>
 <!--                           ***** COLOR *****                                       -->
@@ -122,7 +123,6 @@
                             <% if (color.id == producto.colorId) { %>
                                 <option selected="selected" value="<%= color.id %> "><%= color.name  %> </option>
                             <% } else { %>
-                            
                                 <option value="<%= color.id %> "><%= color.name  %> </option>
                                 <% } %> 
                         <% }) %>
@@ -153,12 +153,10 @@
                     <input type="file"  class="img" name="image" placeholder="Imagen del artículo" >
                     <div name="error" class="img-error"></div>
                     <% if (locals.errors && errors.image) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.image.msg %>  </p>
+                        <p class="feedback"><%= errors.image.msg %>  </p>
                     <% } %>
                 </div>
-               
                         <div class="btn-form">
-                            
                             <button type="submit">Guardar cambios</button>
                     </div>
                     
@@ -178,8 +176,6 @@
                 </div>
     </div>
 </main>
-
-
 
 
     <%- include('../partials/footer')%>

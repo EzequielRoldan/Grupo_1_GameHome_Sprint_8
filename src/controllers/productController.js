@@ -14,7 +14,7 @@ const productController = {
     index: (req,res)=>{
 
         
-            let products = Products.findAll({include:['brand','color','category']},{
+            let products = Products.findAll({include:['brand','color','category'],
                 where:{
                     section:'Destacado'
                 },

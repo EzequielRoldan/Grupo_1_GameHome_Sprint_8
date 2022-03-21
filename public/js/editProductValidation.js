@@ -16,62 +16,49 @@ window.addEventListener('load',function () {
     
 
  //Expresión regular para input number de precio
-var regexNum = /^[0-9]$/;
+    const regexNum = /^[0-9]$/;
 
 
 
 //                           ***** VALIDACIONES *****
 
 // -Nombre del Producto-
-    function nameProduct(){
+    function nameProductValidator(){
 
         let nameError=document.querySelector('.nameProduct-error');
          nameError.innerHTML='';
          if(nombre.value==''|| nombre.value==null){
-
-            nameError.innerHTML = '<p> El campo no puede quedar incompleto.</p>';
-            nameError.style.color='red';
+            showErrorMessage(nameError, 'El nombre no puede quedar vacío.')
 
             return true;
-         }
-         else if(nombre.value.length < 5){
-
-            nameError.innerHTML = '<p> El campo debe tener al menos 5 caracteres</p>';
-            nameError.style.color='red';
-
+         }else if(nombre.value.length < 5){
+            showErrorMessage(nameError, 'El nombre debe contener al menos 5 caracteres.')
             return true;
 
-         }
-         else{
-
+         }else{
             nameError.innerHTML='';
             return false;
 
-         }
-
+        }
     } 
 
 // -Validación del precio-
-    function priceProduct(){
+    function priceProductValidator(){
         let priceError=document.querySelector('.priceProduct-error');
         priceError.innerHTML='';
 
         if(price.value == ''|| price.value== null){
-
-            priceError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-            priceError.style.color='red';
+            showErrorMessage(priceError, 'El precio no puede quedar vacío.')
             return true;
 
         }
         else if(price.value <=0){
-            priceError.innerHTML = '<p>El precio debe ser mayor a 0</p>';
-            priceError.style.color='red';
+            showErrorMessage(priceError, 'El precio tiene que ser mayor a 0.');
             return true;
 
         }
         else if(!price.value.match(regexNum)){
-            priceError.innerHTML = '<p>El precio solo debe contener números.</p>';
-            priceError.style.color='red';
+            showErrorMessage(priceError,'Solo se admiten números.');
             return true;
 
         }else{
@@ -81,13 +68,12 @@ var regexNum = /^[0-9]$/;
         }
     }
 // -Validación del section-
-    function sectionProduct(){
+    function sectionProductValidator(){
         let sectionError = document.querySelector('.section-error');
         sectionError.innerHTML = '';
         
         if(section.value == '' || section.value == 0){
-            sectionError.innerHTML = '<p>Seleccioná una sección, por favor.</p>';
-            sectionError.style.color = 'red';
+            showErrorMessage(sectionError,'Seleccioná una sección para mostrar tu producto, por favor.');
             return true;
         }else{
             sectionError.innerHTML = '';
@@ -95,103 +81,87 @@ var regexNum = /^[0-9]$/;
         }
     }
 // -Validación de la descripción-
-    function descriptionProduct(){
+    function descriptionProductValidator(){
         let descriptionError = document.querySelector('.description-error');
         descriptionError.innerHTML = '';
 
         if(description.value == '' || description.value == null){
-            descriptionError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-            descriptionError.style.color='red';
+            showErrorMessage(descriptionError, 'La descripción no puede quedar vacía.');
             return true;
 
         }else if(description.value.length<20){
-            
-            descriptionError.innerHTML+='<p>El campo debe contener al menos 20 caracteres.</p>'
-            descriptionError.style.color='red';
-       return true
-        }
-        else{
+            showErrorMessage(descriptionError, 'La descripción debe contener al menos 20 caracteres.'); 
+             return true
+        }else{
             descriptionError.innerHTML=''
-        return false
+            return false
         };
     }
 // -Validación de la descripción extendida-
-    function descriptionMaxProduct(){
+    function descriptionMaxProductValidator(){
         let descripMaxError =document.querySelector('.descripMax-error');
-        descripMaxError.innerHTML = '';
+            descripMaxError.innerHTML = '';
 
         if(descriptionMax.value == '' || descriptionMax.value == null){
-            descripMaxError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-            descripMaxError.style.color='red';
+            showErrorMessage(descripMaxError, 'La descripción no puede quedar vacía.');
             return true;
 
         }else if(descriptionMax.value.length<20){
-            
-            descripMaxError.innerHTML+='<p>El campo debe contener al menos 20 caracteres.</p>'
-            descripMaxError.style.color='red';
-       return true
-        }
-        else{
-            descripMaxError.innerHTML=''
-        return false
+            showErrorMessage(descripMaxError, 'La descripción debe contener al menos 20 caracteres');
+              return true;
+        }else{
+            descripMaxError.innerHTML='';
+            return false;
         }
     }      
 // -Validación del color-
-    function colorProduct(){
+    function colorProductValidator(){
 
         let colorError = document.querySelector('.color-error');
         colorError.innerHTML = '';
 
         if(color.value == ''|| color.value == null){
-
-            colorError.innerHTML = 'Debes seleccionar un color';
-            colorError.style.color='red';
+            showErrorMessage(colorError, 'Debes seleccionar un color');
             return true
 
-        }
-        else{
+        }else{
             colorError.innerHTML = '';
             return false;
         }
 
     }   
     // -Validación de stock-
-    function stockProduct(){
-        let stockError = document.querySelector('.stoc-error');
+    function stockProductValidator(){
+        let stockError = document.querySelector('.stock-error');
         stockError.innerHTML = '';
         if(stockEdit.value == '' || stockEdit.value == null){
-            stockError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-            stockError.style.color='red';
+            showErrorMessage(stockError, 'El stock no puede quedar vacío.');
             return true;
         }else if(!stock.value.match(regexNum)){
-            stockError.innerHTML = '<p>El stock solo debe contener números.</p>';
-            stockError.style.color='red';
+            showErrorMessage(stockError, 'El stock solo admite números.');
             return true;
     
         }else{
             stockError.innerHTML='';
-    
             return false;
         }
     }        
     // -Validación de stock minimo-
-        function minStock(){
+        function minStockValidator(){
         let minError = document.querySelector('.stock-min-error');
-        minError.innerHTML = '';
+            minError.innerHTML = '';
+
         if(stockMin.value == '' || stockMin.value == null){
-            minError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-            minError.style.color='red';
+            showErrorMessage(minError, 'El stock no puede quedar vacío.');
             return true;
         }
         else if(stockMin.value <=0){
-            minError.innerHTML = '<p>El stock debe ser mayor a 0</p>';
-            minError.style.color='red';
+            showErrorMessage(minError, 'El stock debe ser mayor a 0.');
             return true;
     
         }
         else if(!stockMin.value.match(regexNum)){
-            minError.innerHTML = '<p>El stock solo debe contener números.</p>';
-            minError.style.color='red';
+            showErrorMessage(minError, 'El stock solo debe contener números.');
             return true;
     
         }else{
@@ -200,33 +170,30 @@ var regexNum = /^[0-9]$/;
         }
     }  
     // -Validación de stock maximo-
-        function maxStock(){
+        function maxStockValidator(){
             let maxError = document.querySelector('.stock-max-error');
-            maxError.innerHTML = '';
+                maxError.innerHTML = '';
             if(stockMax.value == '' || stockMax.value == null){
-                maxError.innerHTML = '<p>El campo no puede quedar incompleto o vacío.</p>';
-                maxError.style.color='red';
+                showErrorMessage(maxError, 'El stock máximo no puede quedar vacío.');
                 return true;
-            }
-            else if(stockMax.value <=0){
+            }else if(stockMax.value <=0){
+                showErrorMessage(maxError, 'El stock máximo no puede quedar vacío.');
                 maxError.innerHTML = '<p>El stock debe ser mayor a 0</p>';
                 maxError.style.color='red';
                 return true;
     
-            }
-            else if(!stockMax.value.match(regexNum)){                maxError.innerHTML = '<p>El stock solo debe contener números.</p>';
-                maxError.style.color='red';
+            }else if(!stockMax.value.match(regexNum)){
+                showErrorMessage(maxError, 'El stock máximo solo admite números.');
                 return true;
     
             }else{
                 maxError.innerHTML='';
-    
                 return false;
             }
     
         }
 // -Validación para Imagen-
-    function imgProduct(){
+    function imgProductValidator(){
         const extensions = ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF'];
         let imgError = document.querySelector(".img-error");
         imgError.innerHTML = "";
@@ -253,16 +220,16 @@ var regexNum = /^[0-9]$/;
     form.addEventListener('submit',function(event){
 
         let hasErrors={
-            name: nameProduct(),
-            price:priceProduct(),
-            section:sectionProduct(),
-            description:descriptionProduct(),
-            extended_description:descriptionMaxProduct(),
-            colorId:colorProduct(),
-            image: imgProduct(),
-            stock: stockProduct(),
-            stock_min:minStock(),
-            stock_max: stockMax()
+            name: nameProductValidator(),
+            price:priceProductValidator(),
+            section:sectionProductValidator(),
+            description:descriptionProductValidator(),
+            extended_description:descriptionMaxProductValidator(),
+            colorId:colorProductValidator(),
+            image: imgProductValidator(),
+            stock: stockProductValidator(),
+            stock_min:minStockValidator(),
+            stock_max: stockMaxValidator()
         }
         
         if(hasErrors.name || hasErrors.price || hasErrors.section || hasErrors.description || hasErrors.extended_description ||hasErrors.colorId || hasErrors.image ||hasErrors.stock ||hasErrors.min_stock|| hasErrors.stock_max){
@@ -278,16 +245,16 @@ var regexNum = /^[0-9]$/;
     })
 //                          ***** LLAMADO DE FUNCIONES *****
 
-nombre.addEventListener('blur', nameProduct);
-price.addEventListener('blur',priceProduct);
-section.addEventListener('blur',sectionProduct);
-description.addEventListener('blur',descriptionProduct);
-descriptionMax.addEventListener('blur',descriptionMaxProduct);
-stockEdit.addEventListener('blur',stockProduct);
-stockMin.addEventListener('blur',minStock);
-stockMax.addEventListener('blur',maxStock);
-color.addEventListener('blur',colorProduct);
-img.addEventListener('change', imgProduct);
+nombre.addEventListener('blur', nameProductValidator);
+price.addEventListener('blur',priceProductValidator);
+section.addEventListener('blur',sectionProductValidator);
+description.addEventListener('blur',descriptionProductValidator);
+descriptionMax.addEventListener('blur',descriptionMaxProductValidator);
+stockEdit.addEventListener('blur',stockProductValidator);
+stockMin.addEventListener('blur',minStockValidator);
+stockMax.addEventListener('blur',maxStockValidator);
+color.addEventListener('blur',colorProductValidator);
+img.addEventListener('change', imgProductValidator);
 
 
 })

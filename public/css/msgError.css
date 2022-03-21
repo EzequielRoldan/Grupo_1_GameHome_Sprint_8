@@ -1,0 +1,36 @@
+/* REGISTRO */
+form .error-nombre{
+    justify-content: right;
+    color: red;
+    font-size: 15px;
+    margin-bottom: 1px;
+
+}
+form .error-apellido{
+    color: red;
+    font-size: 15px;
+
+}
+form .error-correo{
+    color: red;
+    font-size: 15px;
+
+}
+form .error-date{
+    color: red;
+    font-size: 15px;
+
+}
+form .error-password{
+    color: red;
+    font-size: 15px;
+
+}
+form div{
+    margin-bottom: 0%;
+}
+form .feedback {
+    color: red;
+    font-size: 20px;
+}
+

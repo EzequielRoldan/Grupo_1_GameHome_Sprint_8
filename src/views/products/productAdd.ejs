@@ -8,8 +8,6 @@
 
 
 <main>
-
-
     
     <br>
     <div class="contenedor-formularioCreate">
@@ -24,7 +22,7 @@
                         <input type="text" name="name" class="nombre-product" placeholder="Ej: Cam Logitech ">
                         <div name="error" class="nameProduct-error"></div>
                         <% if (locals.errors && errors.name) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.name.msg %>  </p>
+                            <p class="feedback"><%= errors.name.msg %>  </p>
                         <% } %>
 
                 </div>
@@ -39,7 +37,7 @@
                                 <option value="<%= category.id%> "><%= category.name%></option>
                             <% }) %>
                         <% if (locals.errors && errors.categoryId) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.categoryId.msg %>  </p>
+                            <p class="feedback"><%= errors.categoryId.msg %></p>
                         <% } %>
                         </select>
                         <div name="error" class="category-error"></div>
@@ -51,7 +49,7 @@
                     <input type="text" name="price" class="price" placeholder="Precio">
                     <div name="error" class="priceProduct-error"></div>
                         <% if (locals.errors && errors.price) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.price.msg %>  </p>
+                            <p class="feedback"><%= errors.price.msg %></p>
                         <% } %>
                 </div>
 
@@ -63,7 +61,7 @@
                             <option value="ofertas">Ofertas</option>
                             <option value="destacado">Destacado</option>
                             <% if (locals.errors && errors.section) { %>
-                                <p class="feedback" style="color: red;font-size: 14px;"><%= errors.section.msg %>  </p>
+                                <p class="feedback"><%= errors.section.msg %></p>
                             <% } %>
                             </select>
                             <div name="error" class="section-error"></div>
@@ -76,7 +74,7 @@
                 </div> 
                         <div name="error" class="description-error"></div>
                         <% if (locals.errors && errors.description) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.description.msg %>  </p>
+                        <p class="feedback"><%= errors.description.msg %></p>
                     <% } %>
 
                 <div class="art-product">
@@ -85,7 +83,7 @@
                 </div>
                 <div name="error" class="descripMax-error"></div>
                         <% if (locals.errors && errors.extended_description) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.extended_description.msg %>  </p>
+                        <p class="feedback"><%= errors.extended_description.msg %></p>
                     <% } %>
 
                 <div class="art-product">
@@ -93,7 +91,7 @@
                     <input type="text" name="stock" class="stock">
                     <div name="error" class="stock-error"></div>
                         <% if (locals.errors && errors.stock) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock.msg %>  </p>
+                            <p class="feedback"><%= errors.stock.msg %></p>
                         <% } %>
                 </div>
                 <div class="art-product">
@@ -101,7 +99,7 @@
                     <input type="text" name="stock_min" class="stock-min">
                     <div name="error" class="stock-min-error"></div>
                         <% if (locals.errors && errors.stock_min) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_min.msg %>  </p>
+                            <p class="feedback"><%= errors.stock_min.msg %></p>
                         <% } %>
                 </div>
                 <div class="art-product">
@@ -109,7 +107,7 @@
                     <input type="text" name="stock_max" class="stock-max">
                     <div name="error" class="stock-max-error"></div>
                         <% if (locals.errors && errors.stock_max) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.stock_max.msg %>  </p>
+                            <p class="feedback" ><%= errors.stock_max.msg %></p>
                         <% } %>
                 </div>
 
@@ -142,7 +140,7 @@
                     <input type="file" name="image" class="img" placeholder="Imagen del artículo">
                     <div name="error" class="img-error"></div>
                         <% if (locals.errors && errors.image) { %>
-                            <p class="feedback" style="color: red;font-size: 14px;"><%= errors.image.msg %>  </p>
+                            <p class="feedback"><%= errors.image.msg %>  </p>
                         <% } %>
                 </div>
                

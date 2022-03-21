@@ -16,46 +16,48 @@
                 <form action="/usuario/registro" method="POST" id="form"
                     enctype="multipart/form-data" class="formulario">
 
+                <div class="campos">
 
                     <input type="text" name="firstName" class="nombre" placeholder="Nombre" value="<%= locals.old ? old.firstName : null %>">
-                    <div name="error" class="error-nombre"></div>
+                    <div class="error-nombre"></div>
                     <% if (locals.errors && errors.firstName) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.firstName.msg %>  </p>
+                        <p class="feedback"><%= errors.firstName.msg %>  </p>
                     <% } %>
-
+                </div>
+                <div class="campos">
                     <input type="text" name="lastName" class="apellido" placeholder="Apellido"  value="<%= locals.old ? old.lastName : null %>">
-                    <div name="error" class="error-apellido"></div>
+                    <div class="error-apellido"></div>
                     <% if (locals.errors && errors.lastName) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.lastName.msg %>  </p>
+                        <p class="feedback"><%= errors.lastName.msg %>  </p>
                     <% } %>
-
+                </div>
                     <input type="text" name="email" class="correo" placeholder="Correo electrónico"  value="<%= locals.old ? old.email : null %>">
-                    <div name="error" class="error-correo"></div>
+                    <div class="error-correo"></div>
                     <% if (locals.errors && locals.errors.email) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.email.msg %></p>
+                        <p class="feedback"><%= errors.email.msg %></p>
                     <% } %>
-
-                    <input type="date" id="start" class="date" name="date" value="2000-01-01"min="1950-01-01" max="2004-01-01" >
                     
+                    <input type="date" id="start" class="date" name="date" value="<%= locals.old ? old.date : null %>">
+                    <div class="error-date"></div>
+                    <% if (locals.errors && errors.date) { %>
+                        <p class="feedback"><%= errors.date.msg %></p>
+                    <% } %>
                     
-
 
                     <input type="password" name="password" class="password" placeholder="Contraseña"  value="<%= locals.old ? old.password : null %>">
-                    <div name="error" class="error-password"></div>
+                    <div class="error-password"></div>
                     <% if (locals.errors && errors.password) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.password.msg %></p>
+                        <p class="feedback"><%= errors.password.msg %></p>
                     <% } %>
-
-                    <input type="file" name="avatar" class="image" placeholder="Nombre">
-                    <div name="error" class="error-image"></div>
-                    <% if (locals.errors && errors.avatar) { %>
-                        <p class="feedback" style="color: red;font-size: 14px;"><%= errors.avatar.msg %>  </p>
-                    <% } %>
-
                     
+                    <label for="">Elegí tu avatar</label>
+                    <input type="file" name="avatar" class="image" placeholder="Nombre">
+                    <div class="error-image"></div>
+                    <% if (locals.errors && errors.avatar) { %>
+                        <p class="feedback"><%= errors.avatar.msg %>  </p>
+                    <% } %>
 
-
-               
+               <br>
                     <button class="submit" type="submit" >REGISTRARSE</button> <br>
                     
 

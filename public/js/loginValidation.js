@@ -1,5 +1,7 @@
 window.addEventListener("load", function(){
 
+    const regexEmail = /^([A-Za-z0-9_\-\+\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
     //Obtengo los datos necesarios del ejs en mi js:
     const formLogin = document.querySelector('#formLogin');
     const email = document.querySelector('.email');
@@ -8,42 +10,36 @@ window.addEventListener("load", function(){
 
     //Declaro y desarrollo las Funciones para validar:
     function emailValidation(){
-
     //Traigo la clase para los errores
-        let emailError = document.querySelector('.email-error');
-
-    //Expresión para validar formato email
-        var regexEmail = /^([A-Za-z0-9_\-\+\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-        emailError.innerHTML='';
+        let contenedorEmail = document.querySelector('.email-error');       
+        contenedorEmail.innerHTML='';
         
         //El campo email no puede ser nulo ni vacío
         if(email.value == '' || email.value == null){
-            emailError.innerHTML += '<p>El campo E-mail no debe estar vacío</p>';
-            emailError.style.color='red';
+
+            showErrorMessage(contenedorEmail, 'El E-mail no puede quedar vacío.');
             return true
         //Tampoco puede ser un email inválido
         }else if(!email.value.match(regexEmail)){
-            emailError.innerHTML+= '<p>El E-mail debe ser válido</p>'
-            emailError.style.color='red';
+
+            showErrorMessage(contenedorEmail, 'El E-mail tiene que ser válido.');
             return true;
+
         }else{
-            emailError.innerHTML='';
+            contenedorEmail.innerHTML = '';
             return false;
         }
     }
     function passwordValidation () {
-        let passwordError=document.querySelector('.password-error')
-        passwordError.innerHTML='';
-        if(!password.value){
-            passwordError.innerHTML+='<p>El campo contraseña debe estar completo</p>'
-            passwordError.style.color='red';
-       return true
-    }
-       else{
-        passwordError.innerHTML=''
-    return false
-    } 
+        let contenedorPassword = document.querySelector('.password-error')
+            contenedorPassword.innerHTML = '';
+            if(!password.value){
+                showErrorMessage(contenedorPassword, 'Completá con tu contraseña, por favor.')
+                return true
+            }else{
+            contenedorPassword.innerHTML=''
+                 return false
+        } 
 
     }
     // Eventos

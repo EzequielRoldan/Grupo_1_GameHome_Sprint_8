@@ -20,7 +20,9 @@ body('lastName').notEmpty().withMessage('El apellido tiene que ser completado.')
 //Validación para Password
     body('password').notEmpty().withMessage('Escribe una contraseña, por favor.')
         .bail().matches(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{4,}$/).withMessage('La contraseña debe tener, al menos, una mayúscula, una minúscula, un número y un caracter especial').isLength( { min: 8, max: 15 }).withMessage('La constraseña debe tener entre 8 y 15 caracteres.'),
-
+		
+//Relase date
+	body('date').notEmpty().withMessage('Elegí tu fecha de nacimiento.'),
 //Validación para Imagen de perfil
     body('avatar').custom((value, { req }) => {
 		let file = req.file;

@@ -243,8 +243,26 @@ main .imagen-gamer{
     width: 100%;
     height: 30vw;
 }
-
-
+.titulo-sale{
+    display: none;
+}
+.glider-container{
+    position: relative;
+}
+.glider-prev,
+.glider-next{
+    display: none;
+   
+}
+.glider-prev{
+    left: 30px;
+}
+.glider-next{
+    right: 30px;
+}
+.glider-container-sale{
+    display: none;
+}
 body main .categorias-destacado{
     width: 80%;
     margin: auto;
@@ -694,6 +712,21 @@ footer .seccion2{
         width: 10%;
         margin-top: 10%;
 }
+.glider-prev,
+.glider-next{
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(45%);
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    background: none;
+    color: white;
+   
+}
 /*------MAIN---------*/
 body main .categorias-destacado{
     display: flex;
@@ -904,7 +937,46 @@ body main .categorias-destacado .destacado02{
     
     }
     
+    .titulo-sale{
+        display: block;
+        text-align: center;
+        font-weight: normal;
+        
+        font-size: 23px;
+        margin-top: 30px;
+        margin-bottom: -30px;
+    }
     
+    .glider-container-sale{
+        display: block;
+        position: relative;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .glider-prev-sale,
+    .glider-next-sale{
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: none;
+        top: calc(45%);
+        cursor: pointer;
+        line-height: 30px;
+        text-align: center;
+        background: none;
+        color: white;
+        /*opacity: 20%;*/
+    }
+    .glider-prev-sale{
+        font-size: 220%;
+        left: -10px;
+    }
+    .glider-next-sale{
+        font-size: 220%;
+        right: -10px;
+    }
     main .ofertas{
         display: flex;
         justify-content: space-around;

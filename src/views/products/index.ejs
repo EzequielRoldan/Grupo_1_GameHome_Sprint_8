@@ -10,7 +10,16 @@
 
    
 
-    <img src="/images/Carrousel3.png" alt="imagen gamer" class="imagen-gamer">
+    <div class="glider-container">
+        <div class="slider">
+            <img src="/images/Carrousel3.png" alt="imagen gamer" class="imagen-gamer">
+            <img src="/images/Carrousel2.png" alt="imagen gamer" class="imagen-gamer">
+            <img src="/images/Carrousel5.png" alt="imagen gamer" class="imagen-gamer">
+        </div>
+        <button aria-label="Previous" class="glider-prev">«</button>
+        <button aria-label="Next" class="glider-next">»</button>
+        <div role="tablist" class="dots"></div>
+        </div>
 
 
 
@@ -46,7 +55,16 @@
 
 
 <br><br><br><br><br><br>
+<h3 class="titulo-sale">¡Ofertas!</h3>
+<div class="glider-container-sale">
+    <div class="glider-sale">
 <%- include('../partials/ofertas')%> 
+<%- include('../partials/ofertas')%> 
+</div>
+<button aria-label="Previous" class="glider-prev-sale">«</button>
+<button aria-label="Next" class="glider-next-sale">»</button>
+<div role="tablist" class="dots"></div>
+</div>
 
 
 
@@ -68,7 +86,9 @@
    </main>
 
    <%- include('../partials/footer')%>
-
-
+   <script src="glider.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+   <script src="/js/index.js"></script>
+   <script src="/js/sale.js"></script>
 </body>
 </html>
