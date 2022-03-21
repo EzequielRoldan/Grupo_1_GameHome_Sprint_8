@@ -85,8 +85,17 @@ const productsControllerApi = {
                 })
             })
 
-
+        
             
+    },
+    detail:(req,res ) => {
+        Products.findByPk(req.params.id, {
+            include:['brand','color','category']
+        })
+        .then(product => {
+            res.json(product)
+        })
+
     }
 }
 
