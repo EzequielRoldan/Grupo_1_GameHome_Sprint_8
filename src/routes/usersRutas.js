@@ -27,7 +27,7 @@ router.get('/logout', usersController.logout);
 //Register
 router.get('/registro',ifUserLogged, usersController.register);
 
-router.post('/registro',validationRegister,upload.single('avatar'),usersController.create);
+router.post('/registro',upload.single('avatar'),validationRegister,usersController.create);
 
 //Perfil de usuario
 router.get('/perfil',auth,usersController.profile);

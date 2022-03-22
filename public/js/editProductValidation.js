@@ -18,7 +18,10 @@ window.addEventListener('load',function () {
  //Expresión regular para input number de precio
     const regexNum = /^[0-9]$/;
 
-
+    function showErrorMessage(elemento, mensaje){
+        elemento.innerHTML = '<p>' + mensaje + '</p>';
+        elemento.style.color ='red';
+     };
 
 //                           ***** VALIDACIONES *****
 

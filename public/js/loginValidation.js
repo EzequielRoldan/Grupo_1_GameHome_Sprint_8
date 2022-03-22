@@ -7,7 +7,10 @@ window.addEventListener("load", function(){
     const email = document.querySelector('.email');
     const password = document.querySelector('.password');
 
-
+    function showErrorMessage(elemento, mensaje){
+        elemento.innerHTML = '<p>' + mensaje + '</p>';
+        elemento.style.color ='red';
+     };
     //Declaro y desarrollo las Funciones para validar:
     function emailValidation(){
     //Traigo la clase para los errores

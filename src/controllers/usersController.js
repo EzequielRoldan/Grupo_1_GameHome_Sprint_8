@@ -29,7 +29,9 @@ const usersController = {
         };   
     },
 
-    create: (req,res)=>{
+    create:async (req,res)=>{
+
+        console.log(req.body)
 
         const resulValidation = validationResult(req)
         if(resulValidation.isEmpty()){
@@ -53,14 +55,15 @@ const usersController = {
             user.rolId =2
         }
         //Valida que el email no esté en la base
-        let userDB =  Users.findOne({
+        let userDB = await Users.findOne({
             where: {
                 email: req.body.email
-            }}).then((result)=>{
-            return result
-        });
+            }})
+        
         let body = req.body
         body.password = ''
+
+            console.log(userDB);
        if (userDB) {
              res.render('users/register',{
                 errors: {
