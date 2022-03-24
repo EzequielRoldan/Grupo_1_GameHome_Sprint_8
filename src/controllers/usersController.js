@@ -38,6 +38,8 @@ const usersController = {
             let user = req.body
             let password = bcryptjs.hashSync(req.body.password,10)
              
+            console.log(password);
+
              user.password=password
              console.log(req.file);
         //Para aplicar imagen de usuario por Default
@@ -60,8 +62,9 @@ const usersController = {
                 email: req.body.email
             }})
         
-        let body = req.body
-        body.password = ''
+        
+
+        
 
             console.log(userDB);
        if (userDB) {
@@ -71,7 +74,7 @@ const usersController = {
                         msg: 'Este email ya está registrado'
                     }
                 },
-                old: body,
+                old: req.body,
             });
         }else{
         //Creación a través de la variable user con el create db
@@ -99,7 +102,9 @@ const usersController = {
             }})
 
 
-
+            /*console.log(user + "  USER EN DB");
+            console.log("----------------------");
+            console.log(req.body + "  USER EN BODY");*/
 
             if(user && bcryptjs.compareSync(req.body.password,user.password)==true){
 
