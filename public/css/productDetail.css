@@ -58,36 +58,88 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
-    width: 75%;
-    max-width: 470px;
-    font-size: 16px;
-   
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
 }
-
-.producto-principal form .agregar-boton{
-    background-color: rgb(214, 214, 214);
-    border: none;
-    transition: all 0.4s;
-}
-.producto-principal form button:hover{
-    opacity: 0.9;
-    padding: 10px;
+.producto-principal form .addCart{
+    width: 250px;
+    height: 50px;
     cursor: pointer;
+    align-items: center;
+    border: 1px solid rgb(100, 150, 100);
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e1e7e1;
 }
 .producto-principal form .editar-boton{
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     border: none;
-    background-color: #87f234;
-    color: white;
-    transition: all 0.4s;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #cfd4cf;
 }
+button .addCart, .editar-boton{
+    color: rgb(0, 0, 0);
+}
+button.addCart:hover {
+    background: #22e643;
+    padding: 4px;
+    cursor: pointer;
+}
+button.editar-boton:hover {
+    background: #e4ec73;
+    padding: 8px;
+    cursor: pointer;
+}
+ .addCartIcon button i{
+    
+    display: flex;
+    align-items:stretch;
+    justify-content: space-between;
+}
+
+.addCartIcon:hover button i{
+    border-left: none;
+}
+
+
 
 .producto-principal form .eliminar-boton{
     background-color: rgba(255, 38, 0, 0.844);
     color: white;
     border: none;
-    transition: all 0.4s;
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: red;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
 }
+button.eliminar-boton:hover {
+    background: #e62222;
+    padding: 8px;
+    cursor: pointer;
+}
+.deleteCart button i{
+    border-left: 1px solid #2fc41b;
+    
+    width: 10px;
+    border: none;
+   }
 
+.deleteCart:hover button i{
+    border-left: none;
+    
+   }
 
 main .caracteristicas{
     padding: 10px;

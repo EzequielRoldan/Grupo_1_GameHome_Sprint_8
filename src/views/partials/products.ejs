@@ -9,13 +9,13 @@
 
      <article>
         
-        <img src="/images/<%= products[i].image%>"alt="">
+        <img src="/images/<%= products[i].image%>" alt="imagen del producto">
 
         <div class="nombre-precio-mas">
 
         <p class="nombre"><%= products[i].name%></p>
         <p class="precio"><%= products[i].price%></p>
-        <p class="ver-mas"><a href="/products/<%=products[i].id%>">Ver más</a></p>
+        <a class="ver-mas" href="/products/<%=products[i].id%>">Ver más</a>
     </div>
 
     </article>
