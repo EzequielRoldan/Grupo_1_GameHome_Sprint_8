@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head')%> 
+
+<body>
+    <%- include('../partials/header')%> 
+
+    <h2>Listado de Categorías</h2>
+    <ul>
+        <% for( let i = 0; i < categories.length; i++ ) { %>
+        <li class="listado">
+            <a href="category/detail/<%= categories[i].id %>"><%= categories[i].name %></a>
+        </li>
+        <% } %>
+        
+    </ul>
+</div>
+
+</section>
+    <%- include('../partials/newsletter')%> 
+
+    <%- include('../partials/footer')%>
+</body>
