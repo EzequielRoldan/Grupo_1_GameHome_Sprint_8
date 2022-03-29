@@ -13,8 +13,10 @@ const userControllerApi = {
                     let userForApi = {
                         id: user.id,
                         name: user.firstName,
+                        lastName:user.lastName,
                         email: user.email,
-                        detail: `/api/users/${user.id}`
+                        detail: `/api/users/${user.id}`,
+                        avatar: `/images/users/${user.avatar}`
                     };
                     users.push(userForApi);
                 });
