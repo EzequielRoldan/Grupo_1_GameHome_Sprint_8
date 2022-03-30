@@ -17,6 +17,9 @@
                 <div class="cont-menu">
                   <nav>
                     <label for="btn-menu">✖️</label>
+
+                  
+
                     <% if (typeof user !='undefined') {%>
                       <div class="datosImg-mobile">
                         <p>¡Hola, <%= user.firstName %>! </p>
@@ -25,13 +28,22 @@
                     <a href="/usuario/perfil">Perfil</a>
                     <a href="/products">Productos</a>
                     <a href="/usuario/logout">Salir</a>
-                    <% }else{%> 
+
+                    <% }
+                      else{%> 
+                    
                     <a href="/">Inicio</a>
                     <a href="/usuario/login">Iniciar sesión</a>
                     <a href="/usuario/registro">Registrarse</a>
                     <a href="/products">Productos</a>
                     <a href="#">Nosotros</a>
                     <% }%>
+                    <%  if (locals.user && locals.user.rolId == 1){ %>
+                     
+                     
+                     <a href="/products/create">Cargar Producto</a>
+
+                   <% } %>
                   </nav>
                 
                 </div>

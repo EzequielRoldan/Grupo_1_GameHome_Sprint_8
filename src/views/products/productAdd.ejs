@@ -86,32 +86,30 @@
                         <p class="feedback"><%= errors.extended_description.msg %></p>
                     <% } %>
 
-                
-                <div class="stock">
+                <div class="art-product">
                     <label for="">Stock:</label>
                     <input type="text" name="stock" class="stock">
                     <div name="error" class="stock-error"></div>
                         <% if (locals.errors && errors.stock) { %>
                             <p class="feedback"><%= errors.stock.msg %></p>
                         <% } %>
-                
-               
-                    <label for="">Stock mín:</label>
+                </div>
+                <div class="art-product">
+                    <label for="">Stock mínimo:</label>
                     <input type="text" name="stock_min" class="stock-min">
                     <div name="error" class="stock-min-error"></div>
                         <% if (locals.errors && errors.stock_min) { %>
                             <p class="feedback"><%= errors.stock_min.msg %></p>
                         <% } %>
-                
-                
-                    <label for="">Stock máx:</label>
+                </div>
+                <div class="art-product">
+                    <label for="">Stock máximo:</label>
                     <input type="text" name="stock_max" class="stock-max">
                     <div name="error" class="stock-max-error"></div>
                         <% if (locals.errors && errors.stock_max) { %>
                             <p class="feedback" ><%= errors.stock_max.msg %></p>
                         <% } %>
                 </div>
-            
 
                 <div class="art-product">
                     <label for="">Color</label>
