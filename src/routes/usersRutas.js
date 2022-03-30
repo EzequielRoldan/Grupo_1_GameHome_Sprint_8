@@ -38,4 +38,5 @@ router.get('/editProfile',auth,usersController.editProfile)
 router.put('/editar/:id',validationRegister,upload.single('avatar'),usersController.editProfileProcess,);
 
 
+
 module.exports= router;

@@ -1,0 +1,31 @@
+<h1>Listado de Categorías</h1>
+
+<section class="que-estas-buscando">
+    
+    <div class="contenedor-cat"><% for( let i = 0; i < categories.length; i++ ) { %>
+       
+       <%= categories[i].name %>
+        <% for( let p = 0; p < products.length; p++ ) { %></div>
+            <% if (products[p].categoryId == categories[i].id) { %>
+        
+            <article>
+    
+                <img src="/images/<%= products[p].image%>" alt="imagen del producto">
+        
+                <div class="nombre-precio-mas">
+        
+                <p class="nombre">Nombre: <%= products[p].name%></p>
+                <p class="precio-all">Precio: $<%= products[p].price%></p>
+                <p class="ver-mas-product"><a href="/products/<%=products[p].id%>">Ver más</a></p>
+                
+            </div>
+        
+            </article>
+      
+        <% } %>
+     <% } %>
+    
+    <% } %>
+
+</section>
+

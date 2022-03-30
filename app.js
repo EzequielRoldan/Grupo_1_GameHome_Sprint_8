@@ -19,7 +19,6 @@ const cookies= require('./src/middleware/cookie')
 //Require de las rutas
 const usersRutas= require('./src/routes/usersRutas')
 const productRutas= require('./src/routes/productRutas')
-const categoriesRutas= require('./src/routes/categoriesRutas')
 
 //API's
 
@@ -53,7 +52,7 @@ app.use(cookies);
 //Ruta product
 app.use('/', productRutas);
 
-app.use('/categorias', categoriesRutas);
+
 
 //Ruta users
 app.use('/usuario',usersRutas);

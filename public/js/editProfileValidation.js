@@ -11,11 +11,11 @@ window.addEventListener("load", function(){
     let correo = document.querySelector('.correo');
     let image = document.querySelector('.imagen-perfil');
     let apellido = document.querySelector('.apellido');
-
     function showErrorMessage(elemento, mensaje){
         elemento.innerHTML = '<p>' + mensaje + '</p>';
         elemento.style.color ='red';
      };
+
      //Funciones
 
         function nameValidator () {

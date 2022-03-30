@@ -18,14 +18,11 @@ window.addEventListener("load", function(){
 //Expresión regular para input number de precio
     const regexNum = /^[0-9]$/;
 
-
-    
-    function showErrorMessage(elemento, mensaje){
-        elemento.innerHTML = '<p>' + mensaje + '</p>';
-        elemento.style.color ='red';
-     };
 //Validaciones
-
+function showErrorMessage(elemento, mensaje){
+    elemento.innerHTML = '<p>' + mensaje + '</p>';
+    elemento.style.color ='red';
+ };
     //Validación para Nombre del Producto
     function nameProductValidator(){
         let nameContenedor = document.querySelector('.nameProduct-error');
@@ -75,7 +72,7 @@ window.addEventListener("load", function(){
             return true;
 
         }
-        else if(!precio.value.match(regexNum)){
+        else if((isNaN(precio.value) || precio.value.includes('.')) || (isNaN(precio.value) && precio.value.includes('.'))){
             showErrorMessage(priceContenedor, 'El precio solo admite números.')
             return true;
 
@@ -145,7 +142,7 @@ window.addEventListener("load", function(){
         }else if(stock.value <= 0){
             showErrorMessage(stockMsg, 'El stock no puede ser 0.');
             return true;
-        }else if(!regexNum.test(stock.value)){
+        }else if((isNaN(stock.value) || stock.value.includes('.')) || (isNaN(stock.value) && stock.value.includes('.'))){
             showErrorMessage(stockMsg, 'El stock solo debe contener números.');
             return true;
         }else{
@@ -163,7 +160,7 @@ window.addEventListener("load", function(){
             showErrorMessage(minErrorMsg, 'El stock no puede ser 0.');
             return true;
 
-        }else if(!stockMin.value.match(regexNum)){   
+        }else if((isNaN(stockMin.value) || stockMin.value.includes('.')) || (isNaN(stockMin.value) && stockMin.value.includes('.'))){   
             showErrorMessage(minErrorMsg, 'El campo solo debe contener números.')         
             return true;
 
@@ -184,7 +181,7 @@ window.addEventListener("load", function(){
             return true;
 
         }
-        else if(!stockMax.value.match(regexNum)){            
+        else if((isNaN(stockMax.value) || stockMax.value.includes('.')) || (isNaN(stockMax.value) && stockMax.value.includes('.'))){            
             showErrorMessage(maxError, 'El stock solo debe contener números.')
             return true;
 
@@ -254,8 +251,8 @@ window.addEventListener("load", function(){
                 category: categoryProductValidator(),
                 price: priceProductValidator(),
                 stock: stockProductValidator(),
-                stock_min: stockMinValidator(),
-                stock_max: stockMaxValidator(),
+                stock_min: minStockValidator(),
+                stock_max: maxStockValidator(),
                 description: descriptionProductValidator(),
                 extended_description: descripMaxProductValidator(),
                 section: seccionProductValidator(),

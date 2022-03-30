@@ -48,19 +48,10 @@ const productController = {
                     console.log(products)
                     res.render('products/products',{user:req.session.user,products})
                 
-                })
-                
-       
-
-
-            
-        
+                })             
             
 },
-    edit: (req,res)=>{
-
-    
-      
+    edit: (req,res)=>{   
 
             let id=req.params.id;
             let producto=Products.findByPk(id);
@@ -254,8 +245,19 @@ search:function (req,res) {
         res.redirect('/products')
     })
 
-}
-}
+
+},
+//Fin del CRUD
+allCategories: (req, res) => {
+    let categories = Categories.findAll()
+    let products = Products.findAll({include:['brand','color','category']});
+    Promise.all([products,categories])
+    .then(([products,categories]) => {
+        console.log(categories)
+        res.render('products/categories.ejs', {categories,products})
+    });
+}};
+
 
 
 module.exports=productController;

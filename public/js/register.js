@@ -12,16 +12,17 @@ window.addEventListener("load", function(){
     const apellido = document.querySelector('.apellido');
     const password = document.querySelector('.password');
     const correo = document.querySelector('.correo');
-    /*const date = document.querySelector('.date');*/
+    const date = document.querySelector('.date');
     const image = document.querySelector('.image');
     const button = document.querySelector('.submit');
 
      //Funciones
      
-     function showErrorMessage(elemento, mensaje){
-        elemento.innerHTML = '<p>' + mensaje + '</p>';
-        elemento.style.color ='red';
-     };
+        function showErrorMessage(elemento, mensaje){
+            elemento.innerHTML = '<p>' + mensaje + '</p>';
+            elemento.style.color ='red';
+        };
+
 
         function nameValidator () {
             const contenedor = document.querySelector(".error-nombre");
@@ -109,7 +110,7 @@ window.addEventListener("load", function(){
                 return false
                 }
         }
-        /*function dateValidator() {
+        function dateValidator() {
             let contenedorFecha = document.querySelector('.error-date');
                 contenedorFecha.innerHTML = '';
             if(date.value == ''){
@@ -119,7 +120,7 @@ window.addEventListener("load", function(){
                 contenedorFecha.innerHTML = '';
                 return false
             }
-        }*/
+        }
 
         function imageValidator(){
             const acceptedExtensions = ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF'];
@@ -156,14 +157,13 @@ window.addEventListener("load", function(){
             lastName:lastNameValidator(),
             email:correoValidator(),
             password:passwordValidator(),
-            /*date: dateValidator(),*/
+            date: dateValidator(),
             avatar:imageValidator(),
         };
         
         
-        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName /*|| hasErrors.date*/) {
+        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName || hasErrors.date) {
             e.preventDefault()
-            alert()
         }else{
             
             form.submit()
@@ -182,7 +182,7 @@ window.addEventListener("load", function(){
     apellido.addEventListener('blur',lastNameValidator);
     password.addEventListener('blur',passwordValidator);
     correo.addEventListener('blur',correoValidator);
-    /*date.addEventListener('blur', dateValidator);*/
+    date.addEventListener('blur', dateValidator);
     image.addEventListener('change',imageValidator);
     
     

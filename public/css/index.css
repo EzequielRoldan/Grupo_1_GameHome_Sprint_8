@@ -168,8 +168,8 @@ body{
 
 }
 ::placeholder{
-    color: #0e10a1;
-    font-size: 12px;
+    color: #020213;
+    font-size: 15px;
     
 }
 .lupita{
@@ -237,6 +237,8 @@ body{
 /*------MAIN------*/
 main a{
     width: auto;
+    text-decoration: none;
+    background-color: transparent;
 }
 main .imagen-gamer{
     margin-top: 6px;
@@ -320,99 +322,79 @@ h3.titulo-ofertas{
 
 
 
-/*Seccion de lo mas destacado con una imagen en mobile cuatro en tablet y pchp en desktop*/
+/*Seccion de lo mas destacado con una imagen en mobile cuatro en tablet y pc*/
 
 body main .que-estas-buscando{
     width: 80%;
     margin: auto;
     padding: 10px;
     margin-top: 10px;
-    /*border: solid 1px green;*/
-
-
+    
 }
 
-
-
 body main .que-estas-buscando h3{
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        font-weight: normal;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: normal;
 }
 
 
 body main .que-estas-buscando img{
-   /* width: 80%;
-    margin-left: 30px;
-    border: solid 1px red;*/
     width: 100%;
     border-bottom: solid 1px rgb(228, 227, 227);
     padding: 10px;
 }
 
 body main .que-estas-buscando article{
-    /*margin: auto;
-    border: solid 1px red;
-    width: 85%;
-    margin-top: 10px;*/
     border: rgb(228, 227, 227) solid 1px;
     width: 80%;
     padding: 5px;
     margin: auto;
     margin-top: 15px;
 }
-
-body main  .que-estas-buscando .nombre-precio-mas{
+body article .nombre-precio-mas{
+    padding: 10px;
+    text-align:start;
+}
+body main .que-estas-buscando {
     padding: 10px;
 }
-
 body main .nombre-precio-mas .nombre{
     margin-bottom: 5px;
     font-size: 15px;
 }
-
-body main article .nombre-precio-mas .precio{
+body main article .nombre-precio-mas .precio-all{
     margin-bottom: 8px;
-    font-size: 19px;
-}
-
-body main article .nombre-precio-mas a{
-    
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 6px;
     font-size: 15px;
-    border-radius: 2px;
-    cursor: pointer;
-    
 }
-
-
-body main article .nombre-precio-mas .ver-mas{
-    text-align: center;
-}
-
-.ver-mas{
-
+.ver-mas-product{
+    width:100%;
     background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(140,140,140,1) 100%);
     border: 1px solid black;
     padding: 6px;
     font-size: 15px;
-    border-radius: 3px;
-    transition-property: background-color, font-size; 
-    transition-duration: 0.3s;
+    border-radius: 3px; 
+    cursor: pointer;  
+    text-align: center;
+    text-decoration: none;
+    
+    
+
+}
+a{
+    text-decoration: none;
+    
+    font-weight: bold;
+
 }
 
-.ver-mas:hover{
+.ver-mas-product:hover{
     background-color: #FFF;
-    font-size: 18px;
     box-shadow: 1px 0px 10px #00ff7b8c;
 }
 
-
+/*Para views category*/
 
 
 /*Seccion de banners*/
@@ -536,6 +518,7 @@ footer .seccion2{
 }
 
 
+
 @media (min-width:700px){
 
     /*TABLET*/
@@ -556,7 +539,7 @@ footer .seccion2{
 
     .barra-busqueda:hover .input{
         width: 340px;
-        color: #02222c;
+        color: #000102;
         transition: all 1.5s;
     }
     .barra1{
@@ -654,6 +637,8 @@ footer .seccion2{
     }
     .barra2{
         border-bottom: 1px solid #e0dfdf;
+        background: #0000009d;
+        text-decoration: none;
         
     }
    .barra2 i{
@@ -683,15 +668,18 @@ footer .seccion2{
         text-decoration:none;
         color: rgb(17, 255, 9);
         transition: all 0.5s;
-        background-color: transparent;
-        border: 0;
         background: transparent;
-
     }
-    .barra2 li:hover{
+    .barra2 .a-menus{
+        text-decoration: none;
+
+        
+    }
+    .barra2 .a-menus:hover{
         color: rgb(45, 192, 0);
-        box-shadow: 0 4px 16px rgb(22, 192, 0);
+        box-shadow: 14px 10px 8px  #000000c9;
         transition: all 0.2s ease;
+        text-decoration: none;
         
     }
     .iconos-barra2 i{

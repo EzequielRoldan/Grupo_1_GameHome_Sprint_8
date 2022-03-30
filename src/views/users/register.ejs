@@ -37,7 +37,7 @@
                         <p class="feedback"><%= errors.email.msg %></p>
                     <% } %>
                     
-                    <input type="date" id="start" class="date" name="date" value="<%= locals.old ? old.date : null %>">
+                    <input type="date" id="start" class="date" name="date" value="<%= locals.old ? old.date : null %>" min="1960-01-01" max="2004-12-31">
                     <div class="error-date"></div>
                     <% if (locals.errors && errors.date) { %>
                         <p class="feedback"><%= errors.date.msg %></p>

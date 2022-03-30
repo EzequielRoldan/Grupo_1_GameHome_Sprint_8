@@ -41,6 +41,8 @@ router.delete('/products/delete/:id', productController.destroy);
 
 
 //SEARCH
-router.post('/products/search',productController.search)
+router.post('/products/search',productController.search);
+
+router.get('/categorias', productController.allCategories);
 
 module.exports= router;

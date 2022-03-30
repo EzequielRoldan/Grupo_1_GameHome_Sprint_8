@@ -18,13 +18,13 @@ window.addEventListener('load',function () {
  //Expresión regular para input number de precio
     const regexNum = /^[0-9]$/;
 
+
+
+//                           ***** VALIDACIONES *****
     function showErrorMessage(elemento, mensaje){
         elemento.innerHTML = '<p>' + mensaje + '</p>';
         elemento.style.color ='red';
-     };
-
-//                           ***** VALIDACIONES *****
-
+    };
 // -Nombre del Producto-
     function nameProductValidator(){
 
@@ -60,7 +60,7 @@ window.addEventListener('load',function () {
             return true;
 
         }
-        else if(!price.value.match(regexNum)){
+        else if((isNaN(price.value) || price.value.includes('.')) || (isNaN(price.value) && price.value.includes('.'))){
             showErrorMessage(priceError,'Solo se admiten números.');
             return true;
 
@@ -140,7 +140,7 @@ window.addEventListener('load',function () {
         if(stockEdit.value == '' || stockEdit.value == null){
             showErrorMessage(stockError, 'El stock no puede quedar vacío.');
             return true;
-        }else if(!stock.value.match(regexNum)){
+        }else if((isNaN(stockEdit.value) || stockEdit.value.includes('.')) || (isNaN(stockEdit.value) && stockEdit.value.includes('.'))){
             showErrorMessage(stockError, 'El stock solo admite números.');
             return true;
     
@@ -163,7 +163,7 @@ window.addEventListener('load',function () {
             return true;
     
         }
-        else if(!stockMin.value.match(regexNum)){
+        else if((isNaN(stockMin.value) || stockMin.value.includes('.')) || (isNaN(stockMin.value) && stockMin.value.includes('.'))){
             showErrorMessage(minError, 'El stock solo debe contener números.');
             return true;
     
@@ -185,7 +185,7 @@ window.addEventListener('load',function () {
                 maxError.style.color='red';
                 return true;
     
-            }else if(!stockMax.value.match(regexNum)){
+            }else if((isNaN(stockMin.value) || stockMin.value.includes('.')) || (isNaN(stockMin.value) && stockMin.value.includes('.'))){
                 showErrorMessage(maxError, 'El stock máximo solo admite números.');
                 return true;
     
