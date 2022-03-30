@@ -498,7 +498,9 @@ footer .seccion1 h5{
     margin-bottom: 10px;
     text-align: justify;
 }
-footer .seccion1 p{
+footer .seccion1 .a{
+
+    color: #e0dfdf ;
     margin-bottom: 7px;
     font-size: 15px;
     text-align: justify;

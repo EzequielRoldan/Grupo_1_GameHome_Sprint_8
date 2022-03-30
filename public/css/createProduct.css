@@ -30,6 +30,13 @@ form legend{
     margin-bottom: 12px;
     
 }
+
+.stock{
+
+    justify-content: space-evenly;
+}
+
+
 .art-product input{
     margin-top: 3px;
 }
@@ -130,6 +137,8 @@ form .contenido-form label, input, textarea, select{
     
 
 }
+
+
 form .contenido-form input{
     margin-bottom: 12px;
 }
@@ -191,6 +200,13 @@ form .art-product, .img{
         margin-left:100px ;
         align-self: flex-end;
     }
+
+
+    .stock{
+
+        display: flex;
+    }
+
     .btn-form{
         justify-content: space-around;
        

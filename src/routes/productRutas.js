@@ -45,4 +45,14 @@ router.post('/products/search',productController.search);
 
 router.get('/categorias', productController.allCategories);
 
+//CATEGORIES
+
+router.get('/Auriculares', productController.all);
+router.get('/Computadoras', productController.all);
+router.get('/Sillas', productController.all);
+router.get('/Teclados', productController.all);
+router.get("/Audio-Video",productController.all);
+router.get("/Pc-Notebook",productController.all);
+
+
 module.exports= router;
