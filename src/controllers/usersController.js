@@ -114,7 +114,7 @@ const usersController = {
 
                 //Para salvar la cookie
                     if(req.body.recordar){
-                        res.cookie('userEmail',req.body.email,{maxAge:(1000*60)*2})}
+                        res.cookie('userEmail',req.body.email,{maxAge:(1000*60)*10})}
                     
                     return res.redirect('/')
                 

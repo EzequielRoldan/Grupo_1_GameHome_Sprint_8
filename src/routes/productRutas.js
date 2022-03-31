@@ -45,6 +45,7 @@ router.post('/products/search',productController.search);
 
 router.get('/categorias', productController.allCategories);
 
+
 //CATEGORIES
 
 router.get('/Auriculares', productController.all);
