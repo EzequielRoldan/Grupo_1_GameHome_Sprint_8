@@ -11,6 +11,7 @@ window.addEventListener("load", function(){
     const nombre = document.querySelector('.nombre');
     const apellido = document.querySelector('.apellido');
     const password = document.querySelector('.password');
+    const passwordRepeat = document.querySelector('.password-repeat');
     const correo = document.querySelector('.correo');
     const date = document.querySelector('.date');
     const image = document.querySelector('.image');
@@ -110,6 +111,39 @@ window.addEventListener("load", function(){
                 return false
                 }
         }
+
+
+        function passwordRepeatValidator() {
+            let contenedor = document.querySelector('.error-password-repeat');
+            contenedor.innerHTML='';
+
+            if(!passwordRepeat.value){
+                showErrorMessage(contenedor, 'La contraseña está vacía, escribí una.');
+                return true
+            }
+            else if(passwordRepeat.value.length<8){
+                showErrorMessage(contenedor, 'La contraseña debe ser mayor a 8 caracteres.');
+                return true
+
+            }else if(!regexPassword.test(passwordRepeat.value)){
+                showErrorMessage(contenedor, 'La contraseña debe tener minimo 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial.');
+                return true
+
+            }else if(passwordRepeat.value != password.value){
+                showErrorMessage(contenedor, 'Las contraseñas deben coincidir.');
+                return true
+            }
+            else{
+                contenedor.innerHTML=''
+            return false
+            }
+
+        }
+
+
+
+
+
         function dateValidator() {
             let contenedorFecha = document.querySelector('.error-date');
                 contenedorFecha.innerHTML = '';
@@ -157,12 +191,13 @@ window.addEventListener("load", function(){
             lastName:lastNameValidator(),
             email:correoValidator(),
             password:passwordValidator(),
+            passwordRepeat:passwordRepeatValidator(),
             date: dateValidator(),
             avatar:imageValidator(),
         };
         
         
-        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName || hasErrors.date) {
+        if (hasErrors.firstName || hasErrors.password || hasErrors.email ||hasErrors.avatar || hasErrors.lastName || hasErrors.date || hasErrors.passwordRepeat) {
             e.preventDefault()
         }else{
             
@@ -181,6 +216,7 @@ window.addEventListener("load", function(){
     nombre.addEventListener('blur', nameValidator);
     apellido.addEventListener('blur',lastNameValidator);
     password.addEventListener('blur',passwordValidator);
+    passwordRepeat.addEventListener('blur',passwordRepeatValidator)
     correo.addEventListener('blur',correoValidator);
     date.addEventListener('blur', dateValidator);
     image.addEventListener('change',imageValidator);
