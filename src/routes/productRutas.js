@@ -8,7 +8,7 @@ let productController= require('../controllers/productController');
 
 //Require middleware validaciones
 let createValidations = require('../middleware/createProductValidation')
-let isAdmin = require('../middleware/idAdmin')
+let isAdmin = require('../middleware/idAdmin');
 //Require de Multer
 let upload = require('../middleware/multerMiddleware');
 
