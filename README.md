@@ -49,6 +49,6 @@ tengo 21 años. Una de las cosas  que más  me gusta de la programación es: pre
 - **Franco Tomaino:** Miembro del grupo, estudiante en la Universidad Nacional de La Matanza, dentro del desarrollo me gusta tanto el front end como el back y me apasiona poder aprender cada vez mas, me gusta la musica y el deporte tambien.  
  :man_technologist: https://github.com/FrancoNatanael/
 
-
+## [DASHBOARD](https://github.com/FrancoNatanael/dashboard_GameHome) hecho con React ⬅️
 ### Trello : https://trello.com/b/SbGKz092/proyecto-dh ⬅️
 
