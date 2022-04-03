@@ -254,7 +254,7 @@ allCategories: (req, res) => {
     Promise.all([products,categories])
     .then(([products,categories]) => {
         console.log(categories)
-        res.render('products/categories.ejs', {categories,products})
+        res.render('products/categories.ejs', {categories,products, user:req.session.user})
     });
 }};
 
