@@ -14,10 +14,17 @@
         <img src="/images/<%=sale[i].image%>"alt="">
 
         <div class="nombre-precio-mas">
+            <div class="orden">
+                <div class="orden1">
+                <p class="nombre">Nombre: <%= products[i].name%></p>
+                <p class="precio-all">Precio: $<%= products[i].price%></p>
+                </div>
+                <div class="orden2">
+                <p class="ver-mas-product" ><a href="/products/<%=products[i].id%>">Ver más</a></p>
+                </div>
+             </div>   
 
-        <p class="nombre"><%= sale[i].name%></p>
-        <p class="precio"><%= sale[i].price%></p>
-        <p class="ver-mas-product"><a href="/products/<%=sale[i].id%>">Ver más</a></p>
+        
     </div>
 
     </article>

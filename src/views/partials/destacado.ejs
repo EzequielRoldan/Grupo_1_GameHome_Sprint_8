@@ -13,9 +13,15 @@
 
         <div class="nombre-precio-mas">
 
-        <p class="nombre">Nombre: <%= products[i].name%></p>
-        <p class="precio-all">Precio: $<%= products[i].price%></p>
-        <p class="ver-mas-product"><a href="/products/<%=products[i].id%>">Ver más</a></p>
+            <div class="orden">
+                <div class="orden1">
+                <p class="nombre">Nombre: <%= products[i].name%></p>
+                <p class="precio-all">Precio: $<%= products[i].price%></p>
+                </div>
+                <div class="orden2">
+                <p class="ver-mas-product" ><a href="/products/<%=products[i].id%>">Ver más</a></p>
+                </div>
+             </div>   
     </div>
 
     </article>

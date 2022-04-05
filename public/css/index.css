@@ -369,6 +369,19 @@ body main article .nombre-precio-mas .precio-all{
     margin-bottom: 8px;
     font-size: 15px;
 }
+/*------Arreglos tarjetas---------*/
+.orden{
+    max-height: 210px;
+}
+.orden .orden1{
+    height: 160px;
+}
+
+.orden .orden2{
+    height: 50px;
+}
+
+
 .ver-mas-product{
     width:100%;
     background: rgb(255,255,255);
